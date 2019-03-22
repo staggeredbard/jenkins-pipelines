@@ -5,13 +5,13 @@ node {
     }
     stage('Fetch'){
         script {
-            sh "git remote add upstream $branch"
+            sh "git remote add upstream $branch | echo \"\""
             sh 'git fetch upstream'
         }
     }
     stage('Merge'){
         script {
-            sh "git merge upstream//$branch"
+            sh "git merge upstream/$branch"
         }
     }
     stage('Push') {

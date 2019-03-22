@@ -1,6 +1,6 @@
 node {
     stage('Clone') {
-        git credentialsId: 'Jenkins', url: "${params.REPO_URL}", branch: 'release'
+        git credentialsId: 'SSS', url: "${params.REPO_URL}", branch: 'release'
         script {
           sh 'ls -al'
         }

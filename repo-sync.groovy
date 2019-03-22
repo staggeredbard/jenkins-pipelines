@@ -11,7 +11,7 @@ node {
     }
     stage('Merge'){
         script {
-            sh "git merge upstream/$branch"
+            sh "git merge upstream//$branch"
         }
     }
     stage('Push') {

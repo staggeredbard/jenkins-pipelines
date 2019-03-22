@@ -6,7 +6,7 @@ node {
     }
     stage('Fetch'){
         script {
-            sh "git remote add upstream $upstream | echo \"\""
+            sh "git remote add upstream $upstream | echo \"setting remote upstream\""
             sshagent(credentials:["${params.CREDENTIALS_ID}"]) {
                 sh 'git fetch upstream'
             }
@@ -20,6 +20,7 @@ node {
     stage('Push') {
         script {
             sshagent(credentials:["${params.CREDENTIALS_ID}"]) {
+                sh 'git push --set-upstream origin $branch | echo \"setting upstream push branch\"'
                 sh 'git push origin $branch'
             }
         }

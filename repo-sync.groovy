@@ -1,5 +1,6 @@
 node {
     branch = "${params.BRANCH}"
+    currentBuild.displayName = branch
     upstream = "${params.UPSTREAM}"
     stage('Clone') {
         git credentialsId: "${params.CREDENTIALS_ID}", url: "${params.REPO_URL}", branch: "${params.BRANCH}"

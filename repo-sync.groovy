@@ -20,8 +20,8 @@ node {
     stage('Push') {
         script {
             sshagent(credentials:["${params.CREDENTIALS_ID}"]) {
-                sh 'git push --set-upstream origin ${params.BRANCH} | echo \"setting upstream push branch ${params.BRANCH}\"'
-                sh 'git push origin $branch'
+                sh "git push --set-upstream origin $branch | echo \"setting upstream push branch $branch\""
+                sh "git push origin $branch"
             }
         }
     }

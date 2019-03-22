@@ -4,6 +4,7 @@ node {
     upstream = "${params.UPSTREAM}"
     stage('Clone') {
         git credentialsId: "${params.CREDENTIALS_ID}", url: "${params.REPO_URL}", branch: "${params.BRANCH}"
+        sh "git clean  -d  -f ."
     }
     stage('Fetch'){
         script {

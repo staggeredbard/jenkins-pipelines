@@ -7,7 +7,9 @@ node {
     stage('Fetch'){
         script {
             sh "git remote add upstream $upstream | echo \"\""
-            sh 'git fetch upstream'
+            sshagent(credentials:["${params.CREDENTIALS_ID}"]) {
+                sh 'git fetch upstream'
+            }
         }
     }
     stage('Merge'){
